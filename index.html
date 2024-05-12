@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: { inter: ["Poppins", "sans-serif"] },
+              colors: {
+                Blue: "#4361EE4D",
+                Move: "#3A0CA3",
+                Estate: "#4361EE",
+                Grey: "#F5F8FA",
+                gray: "#808080",
+                black: "#2B2B2B",
+                bgg: "#D4D4D4",
+                bg2: "#3A0CA3",
+                footercolor:"#eceffd",
+              },
+            },
+          },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        .scroll-container {
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+    </style>
+    <title>me</title>
+</head>
+<body>
+
+    <nav class="py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="#" class="px-3 py-2 font-medium rounded-md bg-Blue">Home</a>
+                    <a href="#" class="px-3 py-2 font-medium rounded-md">About</a>
+                    <a href="#" class="px-3 py-2 font-medium rounded-md">Listings</a>
+                    <a href="#" class="px-3 py-2 font-medium rounded-md">Services</a>
+                    <a href="#" class="px-3 py-2 font-medium rounded-md">Blogs</a>
+                </div>
+
+                <div class="flex justify-start sm:justify-center">
+                    <a href="#" class="flex items-center">
+                        <img src="https://i.postimg.cc/Y9dWMP9h/Group-1.png" alt="Logo" class="w-[124px] h-[50px]">
+                    </a>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <img src="https://i.postimg.cc/Y9Cvnx3k/icon-user-circle-alt.png" alt="Image 1" class="w-[18px] h-[18px]">
+                        <p class="ml-2 font-medium">Login/Register</p>
+                    </div>
+
+                    <div class="flex items-center bg-Move rounded-md px-3 py-2">
+                        <img src="https://i.postimg.cc/W3YhQJWZ/reshot-icon-house-XJ53-QBRVTC-1.png" alt="Image 2" class="w-[18px] h-[18px]">
+                        <p class="text-white font-medium ml-2">Add Listing</p>
+                    </div>
+                </div>
+
+                <div class="sm:hidden flex items-center">
+                    <img src="https://i.postimg.cc/ZK4gDk2v/icon-hamburger-menu.png" alt="Image" class="w-[24px] h-[21px]">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container mx-auto py-8">
+        <div class="hidden md:flex md:flex-col md:items-center md:space-y-8">
+            <div class="flex md:items-center md:space-x-8">
+                <div class="w-1/2 pl-[100px] mr-[150px]">
+                    <h3 class="text-lg md:text-xl text-Estate font-medium mb-2">REAL ESTATE</h3>
+                    <h2 class="text-5xl md:text-6xl font-semibold mb-2">Find a perfect<br> home you love..!</h2>
+                    <p class="text-gray-600 font-normal mb-4">Etiam eget elementum elit. Aenean dignissim dapibus vestibulum.<br> Integer a dolor eu sapien sodales vulputate ac in purus.</p>
+                    <div class="max-w-md mx-auto">
+                        <div class="relative">
+                            <div id="imageContainer" class="overflow-hidden">
+                                <img src="https://i.postimg.cc/QCgTFJQv/luxury-classic-modern-bedroom-suite-hotel-1.png" alt="Image 1" class="w-full transition-transform duration-300 transform">
+                            </div>  
+                            <button id="prevBtn" class="absolute left-[-30px] top-1/2 transform -translate-y-1/2 px-0 py-1"><img src="https://i.postimg.cc/76BqLCdw/Group-3-1.png" alt=""></button>
+                            <button id="nextBtn" class="absolute right-[-20px] top-1/2 transform -translate-y-1/2 px-0 py-1"><img src="https://i.postimg.cc/2jKzRZnx/Group-4.png" alt=""></button>
+                        </div>
+                    </div>              
+                </div>
+                <div class="max-w-md mx-auto bg-white shadow-md rounded-md overflow-hidden ">
+                    <div class="px-6 pt-8 pb-20">
+                        <div class="flex justify-between mb-4">
+                            <div class="hover:bg-gray-100 text-Move p-2 cursor-pointer">For Sale</div>
+                            <div class="hover:bg-gray-100 text-Move p-2 cursor-pointer">For Rent</div>
+                        </div>
+                        <div>
+                            <input type="text" id="input1" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 mb-3" placeholder="New York, San Francisco, etc">
+                            <div class="text-red-500 hidden" id="error1">Please fill out this field.</div>
+                            <input type="text" id="input2" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 mb-3" placeholder="Select Property Type">
+                            <div class="text-red-500 hidden" id="error2">Please fill out this field.</div>
+                            <input type="text" id="input3" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 mb-3" placeholder="Select Rooms">
+                            <div class="text-red-500 hidden" id="error3">Please fill out this field.</div>
+                        </div>
+                        <div class="flex items-center mb-2 md:mb-0">
+                            <img src="https://i.postimg.cc/gjCg9s6r/icon-setting-5.png" alt="Image 1" class="w-[14px] h-[14px]">
+                            <p class="ml-2 font-normal">Advance Search</p>
+                        </div>
+                        <button id="submitBtn" class="w-full bg-Move text-white py-2 px-4 mt-8 rounded-md hover:bg-blue-600 flex justify-center">
+                            <img src="https://i.postimg.cc/hP8cJ3H2/icon-search-normal-1.png" alt="">
+                            <h3 class="pl-2">Search</h3>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden">
+            <div class="max-w-md mx-auto mb-8">
+                <div class="relative">
+                    <div id="imageContainer" class="overflow-hidden">
+                        <img src="https://i.postimg.cc/QCgTFJQv/luxury-classic-modern-bedroom-suite-hotel-1.png" alt="Image 1" class="w-full transition-transform duration-300 transform">
+                    </div>  
+                    <button id="prevBtn" class="absolute left-[-30px] top-1/2 transform -translate-y-1/2 px-0 py-1"><img src="https://i.postimg.cc/76BqLCdw/Group-3-1.png" alt=""></button>
+                    <button id="nextBtn" class="absolute right-[-20px] top-1/2 transform -translate-y-1/2 px-0 py-1"><img src="https://i.postimg.cc/2jKzRZnx/Group-4.png" alt=""></button>
+                </div>
+                <div class="max-w-md mx-auto bg-white shadow-md rounded-md overflow-hidden ">
+                    <div class="px-6 pt-8 pb-20">
+                        <div class="flex justify-between mb-4">
+                            <div class="hover:bg-gray-100 text-Move p-2 cursor-pointer">For Sale</div>
+                            <div class="hover:bg-gray-100 text-Move p-2 cursor-pointer">For Rent</div>
+                        </div>
+                        <div>
+                            <input type="text" id="input1" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 mb-3" placeholder="New York, San Francisco, etc">
+                            <div class="text-red-500 hidden" id="error1">Please fill out this field.</div>
+                            <input type="text" id="input2" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 mb-3" placeholder="Select Property Type">
+                            <div class="text-red-500 hidden" id="error2">Please fill out this field.</div>
+                            <input type="text" id="input3" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 mb-3" placeholder="Select Rooms">
+                            <div class="text-red-500 hidden" id="error3">Please fill out this field.</div>
+                        </div>
+                        <div class="flex items-center mb-2 md:mb-0">
+                            <img src="https://i.postimg.cc/gjCg9s6r/icon-setting-5.png" alt="Image 1" class="w-[14px] h-[14px]">
+                            <p class="ml-2 font-normal">Advance Search</p>
+                        </div>
+                        <button id="submitBtn" class="w-full bg-Move text-white py-2 px-4 mt-8 rounded-md hover:bg-blue-600 flex justify-center">
+                            <img src="https://i.postimg.cc/hP8cJ3H2/icon-search-normal-1.png" alt="">
+                            <h3 class="pl-2">Search</h3>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+
+        <h1 class="mt-8 text-center font-medium text-gray">Trusted by 100+ Companies across the globe! </h1>
+        
+
+        <div class="flex justify-center mt-8">
+            <img src="https://i.postimg.cc/j5KLL6GN/image-1.png" alt="Image 1">
+            <img src="https://i.postimg.cc/9MpzTRhk/image-2.png" class="pl-20" alt="Image 2">
+            <img src="https://i.postimg.cc/D0pZj9md/image-3.png" class="pl-20" alt="Image 3">
+            <img src="https://i.postimg.cc/Fs11dHnP/image-4.png" class="pl-20 hidden md:block" alt="Image 4">
+            <img src="https://i.postimg.cc/c4jCQGpd/image-5.png" class="pl-20 hidden md:block" alt="Image 5">
+            <img src="https://i.postimg.cc/T3Dw0Hxg/image-6.png" class="pl-20 hidden md:block" alt="Image 6">
+        </div>
+        
+
+        <div class="justify-center mt-8 md:flex sm:block">
+            <img src="https://i.postimg.cc/x1506r7k/Group-22.png" alt="Image 1" class="w-[360px]">
+            <img src="https://i.postimg.cc/CKbRhr6S/Group-39-1.png" alt="Image 2" class="w-[360px] md:ml-4">
+        </div>
+        
+    </div>
+    
+    <section>
+        <div class="flex flex-col md:flex-row justify-between md:pl-16">
+
+            <div class="md:w-1/2">
+
+                <h3 class="text-lg md:text-xl text-Estate font-medium mb-2">WHO ARE WE</h3>
+                <h2 class="text-5xl md:text-6xl font-semibold mb-2">Assisting individuals in<br> locating the appropriate<br> real estate.</h2>
+                <p class="text-gray-600 font-normal mb-4">Donec porttitor euismod dignissim. Nullam a lacinia ipsum,<br> nec dignissim purus. Nulla convallis ipsum molestie nibh<br> malesuada, ac malesuada leo volutpat.</p>
+
+                <div class="bg-white shadow-md rounded-md overflow-hidden flex flex-col mt-4 p-2">
+                    <div class="flex-none">
+                        <img src="https://i.postimg.cc/CL2S7Xcd/icon-smart-home.png" alt="Image" class="object-cover">
+                    </div>
+                    
+                    <div class="pl-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Donec porttitor euismod</h2>
+                        <p class="text-gray-600 mt-2">Nullam a lacinia ipsum, nec<br> dignissim purus. Nulla</p>
+                    </div>
+                </div>     
+                <div class="bg-white shadow-md rounded-md overflow-hidden flex flex-col mt-4 p-2">
+                    <div class="flex-none">
+                        <img src="https://i.postimg.cc/7ZxPf0tn/Group-2.png" alt="Image" class="object-cover">
+                    </div>
+                    
+                    <div class="pl-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Donec porttitor euismod</h2>
+                        <p class="text-gray-600 mt-2">Nullam a lacinia ipsum, nec<br> dignissim purus. Nulla</p>
+                    </div>
+                </div>
+
+            </div>
+
+             <div class="flex pl-20 md:order-last">
+                <div>
+                    <img src="https://i.postimg.cc/j2HKjSz1/Rectangle-14-1.png" class="mt-16">
+                </div>
+                <div class="ml-4">
+                    <img src="https://i.postimg.cc/L6S2bjSF/Rectangle-15-1.png" alt="">
+                    <img src="https://i.postimg.cc/XvrbC8fd/Rectangle-16-1.png" alt="">
+                </div>
+            </div>
+        </div>   
+    </section>
+
+    <section class="px-4 md:px-0">
+        <div class="container mx-auto mb-8 mt-16 md:mt-24">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0 md:mr-8 md:pl-16"> 
+                    <h3 class="text-xl md:text-2xl text-Move font-medium mb-2">CHECKOUT OUR NEW</h3>
+                    <h1 class="text-4xl md:text-6xl font-semibold mb-4">Latest Listed Properties</h1> 
+                    <p class="text-gray-600 font-normal">Donec porttitor euismod dignissim. Nullam a lacinia ipsum,<br> nec dignissim purus. </p>
+                </div>
+                <div class="flex flex-wrap gap-3 md:pr-16"> 
+                    <button class="bg-Move text-white rounded-md w-[80px] h-[49px]">All</button>
+                    <button class="bg-Move text-white rounded-md w-[80px] h-[49px]">Sell</button> 
+                    <button class="bg-Move text-white rounded-md w-[80px] h-[49px]">Rent</button> 
+                </div>
+            </div>
+        </div>
+    
+        <div class="grid md:grid-cols-3 gap-8 md:pl-16">
+            <div class="flex flex-col items-center md:items-start">
+                <img src="https://i.postimg.cc/qvSnfpGK/Rectangle-18.png" alt="">
+                <h1 class="pt-2 font-semibold text-2xl md:text-3xl">$ 5,970</h1>
+                <h2 class="pt-2 font-medium text-black">Tranquil Haven in the Woods</h2>
+                <h3 class="pt-2 font-normal text-gray">103 Wright CourtBurien, WA 98168</h3>
+                <div class="flex pt-2">
+                    <img src="https://i.postimg.cc/vTYx7TGJ/Group-31.png" alt="">
+                    <img src="https://i.postimg.cc/gjgXgpJn/Group-30.png" class="pl-2">
+                </div>
+            </div>
+            <div class="flex flex-col items-center md:items-start">
+                <img src="https://i.postimg.cc/L60gfmwW/Rectangle-19.png" alt="">
+                <h1 class="pt-2 font-semibold text-2xl md:text-3xl">$ 1,970</h1>
+                <h2 class="pt-2 font-medium text-black">Serene Retreat by the Lake</h2>
+                <h3 class="pt-2 font-normal text-gray">1964 Jehovah Drive, VA 22408</h3>
+                <div class="flex pt-2">
+                    <img src="https://i.postimg.cc/Jzfy6P1c/Group-31-1.png" alt="">
+                    <img src="https://i.postimg.cc/k4929GR2/Group-30-1.png" class="pl-2">
+                </div>
+            </div>
+            <div class="flex flex-col items-center md:items-start">
+                <img src="https://i.postimg.cc/Dz3Zd0gx/Rectangle-20-1.png" alt="">
+                <h1 class="pt-2 font-semibold text-2xl md:text-3xl">$ 3,450</h1>
+                <h2 class="pt-2 font-medium text-black">Charming Cottage in the Meadow</h2>
+                <h3 class="pt-2 font-normal text-gray">1508 Centennial Farm RoadHarlan, 51537</h3>
+                <div class="flex pt-2">
+                    <img src="https://i.postimg.cc/vTYx7TGJ/Group-31.png" alt="">
+                    <img src="https://i.postimg.cc/FRDH4ZQ6/Group-30-2.png" class="pl-2">
+                </div>
+            </div>
+            
+        </div>           
+    </section>
+
+    <section>
+        <div class="bg-bgg md:px-6">
+            <div class="mt-12 md:mt-24">
+                <h2 class="font-medium text-black text-xl text-center md:text-2xl pt-6 md:pt-10">OUR SERVICES</h2>
+                <h1 class="font-semibold text-2xl text-black text-center md:text-3xl">Donec porttitor euismod dignissim</h1>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:justify-center mt-8 md:mt-12 pb-12 md:pb-20">
+                <div class="bg-white shadow-md rounded-xl overflow-hidden flex flex-col items-center p-8 md:p-20">
+                    <img src="https://i.postimg.cc/9fW2jRDV/Ellipse-10-copy.png" class="w-[90px] md:w-[100px]">
+                    <h1 class="font-semibold text-black text-center text-lg md:text-xl mt-4 md:mt-6">Buy a New Home</h1>
+                    <p class="text-gray text-center mt-2 md:mt-4">Donec porttitor euismod<br> dignissim. Nullam a lacinia<br> ipsum, nec dignissim<br> purus. </p>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden flex flex-col items-center p-8 md:p-20 ml-0 md:ml-6">
+                    <img src="https://i.postimg.cc/HWfV1zdg/Ellipse-10-copy2.png" class="w-[90px] md:w-[100px]">
+                    <h1 class="font-semibold text-black text-center text-lg md:text-xl mt-4 md:mt-6">Buy a New Home</h1>
+                    <p class="text-gray text-center mt-2 md:mt-4">Donec porttitor euismod<br> dignissim. Nullam a lacinia<br> ipsum, nec dignissim<br> purus. </p>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden flex flex-col items-center p-8 md:p-20 ml-0 md:ml-6">
+                    <img src="https://i.postimg.cc/VLn5ftkb/Ellipse-10-copy3.png" class="w-[90px] md:w-[100px]">
+                    <h1 class="font-semibold text-black text-center text-lg md:text-xl mt-4 md:mt-6">Buy a New Home</h1>
+                    <p class="text-gray text-center mt-2 md:mt-4">Donec porttitor euismod<br> dignissim. Nullam a lacinia<br> ipsum, nec dignissim<br> purus. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="hidden sm:block">
+        <h3 class="text-xl md:text-2xl text-Move font-medium mb-2 ml-[220px] mt-20">AREAS ACROSS THE TOWN</h3>
+        <h1 class="text-4xl md:text-6xl font-semibold mb-4 ml-[220px]">Neighborhood Properties</h1>
+        <div class="flex flex-col justify-center items-center">
+            <div class="flex gap-8">
+                <img src="https://i.postimg.cc/xT4g2Wqd/Property-1.png" alt="image-1">
+                <img src="https://i.postimg.cc/43C5KV6k/Property-2.png" alt="image-2">
+                <img src="https://i.postimg.cc/G2KJSfZd/Property-3.png" alt="image-3">
+            </div>
+            <div class="flex gap-8 mt-6">
+                <img src="https://i.postimg.cc/tJgt05jP/Property-4.png" alt="image-4">
+                <img src="https://i.postimg.cc/jdm69Pkw/Property-5.png" alt="image-5">
+            </div>
+        </div>
+    </section>
+    
+    <section class="sm:hidden">
+        <h3 class="text-xl md:text-2xl text-Move font-medium mb-2 mt-8">AREAS ACROSS THE TOWN</h3>
+        <h1 class="text-4xl md:text-6xl font-semibold mb-4">Neighborhood Properties</h1>
+        <div class="flex flex-col">
+            <div class="flex flex-row items-center gap-2 mt-6">
+                <img src="https://i.postimg.cc/xT4g2Wqd/Property-1.png" class="w-[155px] h-[155px]">
+                <img src="https://i.postimg.cc/43C5KV6k/Property-2.png" class="w-[155px] h-[155px]">
+            </div>
+            <div class="flex flex-row items-center gap-2 mt-6">
+                <img src="https://i.postimg.cc/G2KJSfZd/Property-3.png" class="w-[155px] h-[155px]">
+                <img src="https://i.postimg.cc/tJgt05jP/Property-4.png" class="w-[155px] h-[155px]">
+            </div>
+            <div class="flex flex-row items-center gap-2 mt-6">
+                <img src="https://i.postimg.cc/jdm69Pkw/Property-5.png" class="w-[155px] h-[155px]">
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="hidden sm:block">
+        <h3 class="text-xl md:text-2xl text-Move font-medium mb-2 mt-20 text-center">Introduce yourself to </h3>
+        <h1 class="text-4xl md:text-6xl font-semibold mb-4 text-center">Our Team of Experts</h1>
+        <div class="flex justify-center items-center gap-8 mt-20">
+            <div>
+                <img src="https://i.postimg.cc/mkNDwxqy/Rectangle-29.png" alt="">
+                <h1 class="text-2xl font-semibold text-black text-center mt-6">Brendon M</h1>
+                <h3 class="text-xl text-Move font-medium text-center">CEO & Founder</h3>
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/SNkjKs2T/Rectangle-30.png" alt="">
+                <h1 class="text-2xl font-semibold text-black text-center mt-6">Jodi J. Appleby</h1>
+                <h3 class="text-xl text-Move font-medium text-center">Real Estate Developer</h3>
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/qv7R85G2/Rectangle-31.png" alt="">
+                <h1 class="text-2xl font-semibold text-black  text-center mt-6">Justin S. Meza</h1>
+                <h3 class="text-xl text-Move font-medium  text-center">Listing Agent</h3>
+            </div>
+            <div>
+                <img src="https://i.postimg.cc/DzJwN4HZ/Rectangle-32.png" alt="">
+                <h1 class="text-2xl font-semibold text-black text-center mt-6">Susan T. Smith</h1>
+                <h3 class="text-xl text-Move font-medium  text-center">Buyer's Agent</h3>
+            </div>
+        </div>
+    </section>
+    
+    <section class="sm:hidden">
+        <h3 class="text-xl md:text-2xl text-Move font-medium mb-2 mt-20 text-center">Introduce yourself to  </h3>
+        <h1 class="text-4xl md:text-6xl font-semibold mb-4 text-center">Our Team of Experts</h1>
+        <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-row items-center gap-10 mt-6">
+                <div>
+                    <img src="https://i.postimg.cc/mkNDwxqy/Rectangle-29.png"  class="w-[120px] h-[168px]">
+                    <h1 class="md:text-2xl font-semibold text-black text-center mt-6">Brendon M</h1>
+                    <h3 class="md:text-xl text-Move font-medium text-center">CEO & Founder</h3>
+                </div>
+                <div>
+                    <img src="https://i.postimg.cc/SNkjKs2T/Rectangle-30.png"  class="w-[120px] h-[168px]">
+                    <h1 class="md:text-2xl font-semibold text-black text-center mt-6">Jodi J. Appleby</h1>
+                    <h3 class="md:text-xl text-Move font-medium text-center">Real Estate Developer</h3>
+                </div>
+            </div>
+            <div class="flex flex-row items-center gap-10 mt-6">
+                <div>
+                    <img src="https://i.postimg.cc/qv7R85G2/Rectangle-31.png"  class="w-[120px] h-[168px]">
+                    <h1 class="md:text-2xl font-semibold text-black  text-center mt-6">Justin S. Meza</h1>
+                    <h3 class="md:text-xl text-Move font-medium  text-center">Listing Agent</h3>
+                </div>
+                <div>
+                    <img src="https://i.postimg.cc/DzJwN4HZ/Rectangle-32.png"  class="w-[120px] h-[168px]">
+                    <h1 class="md:text-2xl font-semibold text-black text-center mt-6">Susan T. Smith</h1>
+                    <h3 class="md:text-xl text-Move font-medium  text-center">Buyer's Agent</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section>
+        <div class="bg-bg2 md:px-6">
+            <div class="mt-12 md:mt-24">
+                <h2 class="font-medium text-white text-xl text-center md:text-2xl pt-6 md:pt-10">OUR SERVICES</h2>
+                <h1 class="font-semibold text-2xl text-white text-center md:text-3xl">Donec porttitor euismod dignissim</h1>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:justify-center mt-8 md:mt-12 pb-12 md:pb-20">
+                <div class="flex flex-col items-center">
+                    <img src="https://i.postimg.cc/rsznGczv/Rectangle-35.png" class="w-[340px] md:w-[240px]">
+                    <h1 class="font-semibold text-white text-lg md:text-xl mt-4 md:mt-6">Top 10 Home Buying<br> Mistakes to Avoid</h1>
+                    <p class="text-white mt-2 md:mt-4">Donec porttitor euismod<br> dignissim. Nullam a lacinia<br> ipsum, nec dignissim<br> purus. </p>
+                </div>
+                <div class="flex flex-col items-center ">
+                    <img src="https://i.postimg.cc/MH4sd4QX/Rectangle-36.png" class="w-[340px] md:w-[240px]">
+                    <h1 class="font-semibold text-white text-lg md:text-xl mt-4 md:mt-6">How to Stage Your<br> Home for a Quick Sale</h1>
+                    <p class="text-white  mt-2 md:mt-4">Donec porttitor euismod<br> dignissim. Nullam a lacinia<br> ipsum, nec dignissim<br> purus. </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="https://i.postimg.cc/HWPPYJhH/Rectangle-37.png" class="w-[340px] md:w-[240px]">
+                    <h1 class="font-semibold text-white text-lg md:text-xl mt-4 md:mt-6">5 Tips for First-Time<br> Home Sellers</h1>
+                    <p class="text-white mt-2 md:mt-4">Donec porttitor euismod<br> dignissim. Nullam a lacinia<br> ipsum, nec dignissim<br> purus. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="md:flex mt-[200px]">
+        <div class="md:ml-[150px]">
+            <h3 class="text-xl md:text-2xl text-Move font-medium mb-2">TESTIMONIALS</h3>
+            <h1 class="text-2xl md:text-3xl font-semibold mb-4">Look What Our<br> Customers Say!</h1> 
+            <p class="text-gray-600 font-normal">Fusce venenatis tellus a felis scelerisque, non<br> pulvinar est pellentesque.  </p>
+            <div class="flex mt-10">
+                <img src="https://i.postimg.cc/rp89CcPQ/Frame-58.png" alt="">
+                <img src="https://i.postimg.cc/vBKLsnHN/Frame-57.png" class="pl-4">
+            </div>
+        </div>
+        <div class="md:mt-0 mt-6 md:ml-0 mx-auto">
+            <img src="https://i.postimg.cc/W17yP9RY/Group-61.png" class="md:ml-[250px]">
+        </div>
+    </section>
+    
+
+
+    <section>
+        <div class="flex justify-center items-center h-screen">
+            <div class="bg-bg2 flex flex-col sm:flex-row shadow-md rounded-2xl px-8">
+                <div class="sm:w-1/2 hidden sm:block">
+                    <img src="https://i.postimg.cc/kXT8381F/unsplash-7uo-Mmz-Pd2-JA.png" alt="Image">
+                </div>
+                <div class="flex flex-col md:justify-center md:items-center sm:w-1/2 sm:gap-6 sm:px-8">
+                    <div>
+                        <h1 class="text-white text-2xl font-semibold">Become an Agent.</h1>
+                        <p class="text-white font-normal">Fusce venenatis tellus a felis scelerisque.<br> venenatis tellus a felis scelerisque. </p>
+                    </div>
+                    <div>
+                        <button class="rounded-2xl bg-white text-Move items-center p-4">Register Now</button>
+                    </div>
+                    <div class="mt-6 sm:hidden">
+                        <img src="https://i.postimg.cc/kXT8381F/unsplash-7uo-Mmz-Pd2-JA.png" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <footer class="bg-footercolor">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-4 px-6 mt-40 p-20">
+          
+          <div>
+            <img src="https://i.postimg.cc/Fz7vYMvK/Group-1-1.png" alt="Logo" class="h-8">
+            <p class="text-black pt-4">2728 Hickory StreetSalt<br> Lake City, UT 84104 </p>
+            <div class="flex">
+                <img src="https://i.postimg.cc/XY3V8Dcs/icon-phone.png" class="w-[20px] h-[20px]  mt-4">
+                <p class="text-black mt-4 pl-3">+1 206-214-2298</p>
+            </div>
+            <div class="flex">
+                <img src="https://i.postimg.cc/1z7syRxd/icon-mail.png" class="w-[20px] h-[20px] mt-4">
+                <p class="text-black mt-4  pl-3">support@rezilla.com</p>
+            </div>
+          </div>
+          
+          <div class="col-span-1">
+            <h1 class="text-black text-lg font-semibold">Quick Links</h1>
+            <ul class="mt-2 space-y-1">
+              <li><a href="#" class="text-black ">Home</a></li>
+              <li><a href="#" class="text-black ">About</a></li>
+              <li><a href="#" class="text-black ">Listings</a></li>
+              <li><a href="#" class="text-black ">Services</a></li>
+              <li><a href="#" class="text-black ">Blogs</a></li>
+              <li><a href="#" class="text-black ">Become a Agent</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-span-1">
+            <h1 class="text-black text-lg font-semibold">Discovery</h1>
+            <ul class="mt-2 space-y-1">
+              <li><a href="#" class="text-black ">Canada</a></li>
+              <li><a href="#" class="text-black ">United States</a></li>
+              <li><a href="#" class="text-black ">Germany</a></li>
+              <li><a href="#" class="text-black ">Africa</a></li>
+              <li><a href="#" class="text-black ">India</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-span-1">
+            <h1 class="text-black text-lg font-semibold">Subscribe to our<br> Newsletter!</h1>
+            <p class="mt-2 text-black">Subscribe to our newseller</p>
+            <input type="text" placeholder="Email Address" class="mt-4 px-4 py-2 w-full rounded-md bg-gray-700 text-black">
+            <h1 class="text-black text-lg font-semibold pt-4">Follow Us on</h1>
+            <img src="https://i.postimg.cc/LX5wDjbC/Group-66.png" class="pt-4">
+          </div>
+        </div>
+        <p class="text-black xl:mt-20 md:mt-20 xl:pb-4 md:pb-4 pl-5">© Rezilla – All rights reserved</p>
+      </footer>
+    
+    
+    
+
+
+<script src="index.js"></script>
+
+</body>
+</html> 
